@@ -1,25 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unblocked Games</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .game-button { margin: 10px; padding: 15px 30px; font-size: 20px; cursor: pointer; }
-        iframe { width: 90%; height: 80vh; border: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Classroom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .main-header {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 10px 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .main-header h1 {
+      margin-left: 16px;
+      font-size: 1.5rem;
+      color: #3c4043;
+    }
+
+    .main-header .material-icons {
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    .class-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .class-card {
+      border-radius: 8px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 180px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .class-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .class-header h2 {
+      margin: 0 0 4px 0;
+    }
+
+    .class-header p {
+      margin: 0;
+    }
+
+    .class-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .class-footer .material-icons {
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Unblocked Games</h1>
-    <button class="game-button" onclick="openGame('game1.html')">Game 1</button>
-    <button class="game-button" onclick="openGame('game2.html')">Game 2</button>
-    <button class="game-button" onclick="openGame('game3.html')">Game 3</button>
+  <header class="main-header">
+    <span class="material-icons">menu</span>
+    <h1>Classroom</h1>
+    <div class="spacer"></div>
+    <span class="material-icons">account_circle</span>
+  </header>
 
-    <script>
-        function openGame(gameUrl) {
-            window.location.href = 'play.html?game=' + encodeURIComponent(gameUrl);
-        }
-    </script>
+  <main class="class-container">
+    <div class="class-card" style="background-color: #4285F4;">
+      <div class="class-header">
+        <h2>Math 101</h2>
+        <p>Period 1 - Mr. Smith</p>
+      </div>
+      <div class="class-footer">
+        <span class="material-icons">folder</span>
+      </div>
+    </div>
+
+    <div class="class-card" style="background-color: #EA4335;">
+      <div class="class-header">
+        <h2>History</h2>
+        <p>Period 2 - Ms. Johnson</p>
+      </div>
+      <div class="class-footer">
+        <span class="material-icons">folder</span>
+      </div>
+    </div>
+
+    <div class="class-card" style="background-color: #34A853;">
+      <div class="class-header">
+        <h2>Science</h2>
+        <p>Period 3 - Dr. Lee</p>
+      </div>
+      <div class="class-footer">
+        <span class="material-icons">folder</span>
+      </div>
+    </div>
+
+    <div class="class-card" style="background-color: #FBBC05;">
+      <div class="class-header">
+        <h2>English</h2>
+        <p>Period 4 - Mrs. Adams</p>
+      </div>
+      <div class="class-footer">
+        <span class="material-icons">folder</span>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
+
