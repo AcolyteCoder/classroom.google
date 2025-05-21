@@ -2,44 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Google Classroom Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="top-bar">
-    <h1>Classroom</h1>
-  </header>
-
-  <main class="classroom">
-    <a href="schedule.html" class="class-card" style="background-color: #1a73e8;">
-      <div class="card-header">
-        <h2>Schedule</h2>
-        <p>Check your daily class routine</p>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="https://ssl.gstatic.com/classroom/ic_product_classroom_48.png" alt="Classroom Logo" />
+        <span>Classroom</span>
       </div>
-    </a>
+      <ul class="menu">
+        <li><span>🏠</span>Home</li>
+        <li><span>🗓️</span>Calendar</li>
+        <li><span>📚</span>Enrolled</li>
+        <li><span>✅</span>To-do</li>
+        <li><a href="schedule.html">📅 Schedule</a></li>
+        <li><a href="shop.html">🛒 Shop</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+      </ul>
+    </aside>
 
-    <a href="shop.html" class="class-card" style="background-color: #34a853;">
-      <div class="card-header">
-        <h2>Shop</h2>
-        <p>Spend your coins and buy items</p>
-      </div>
-    </a>
+    <main>
+      <header class="top-bar">
+        <div></div>
+        <div class="profile">
+          <span>➕</span>
+          <img src="https://www.gstatic.com/classroom/logo_square_rounded.svg" alt="Profile" />
+        </div>
+      </header>
 
-    <a href="games.html" class="class-card" style="background-color: #fbbc04;">
-      <div class="card-header">
-        <h2>Games</h2>
-        <p>Have fun and play educational games</p>
-      </div>
-    </a>
+      <section class="class-grid">
+        <a class="class-card" style="--bg:#1a73e8;" href="schedule.html">
+          <div class="card-top">
+            <h3>Schedule</h3>
+            <p>Track your periods</p>
+            <img src="https://via.placeholder.com/40" alt="avatar" />
+          </div>
+          <div class="card-bottom">
+            <span>📷</span>
+            <span>📁</span>
+          </div>
+        </a>
 
-    <a href="ebooks.html" class="class-card" style="background-color: #ea4335;">
-      <div class="card-header">
-        <h2>eBooks</h2>
-        <p>Read your school eBooks here</p>
-      </div>
-    </a>
-  </main>
+        <a class="class-card" style="--bg:#d93025;" href="shop.html">
+          <div class="card-top">
+            <h3>Shop</h3>
+            <p>Buy items & upgrades</p>
+            <img src="https://via.placeholder.com/40" alt="avatar" />
+          </div>
+          <div class="card-bottom">
+            <span>📷</span>
+            <span>📁</span>
+          </div>
+        </a>
+
+        <a class="class-card" style="--bg:#fbbc04;" href="games.html">
+          <div class="card-top">
+            <h3>Games</h3>
+            <p>Fun & Learning</p>
+            <img src="https://via.placeholder.com/40" alt="avatar" />
+          </div>
+          <div class="card-bottom">
+            <span>📷</span>
+            <span>📁</span>
+          </div>
+        </a>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
