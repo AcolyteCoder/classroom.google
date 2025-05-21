@@ -1,135 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Classroom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
+  
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
     }
 
-    .main-header {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      padding: 10px 16px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+
+
+    .container {
+        text-align: center;
+        padding: 50px 20px;
     }
 
-    .main-header h1 {
-      margin-left: 16px;
-      font-size: 1.5rem;
-      color: #3c4043;
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out;
     }
 
-    .main-header .material-icons {
-      cursor: pointer;
-      font-size: 24px;
+    h2 {
+        margin-top: 30px;
+        font-size: 1.8rem;
     }
 
-    .spacer {
-      flex-grow: 1;
+    .day-schedule {
+        margin-top: 20px;
+        text-align: left;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .class-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 16px;
-      padding: 20px;
+    .schedule-item {
+        margin: 10px 0;
+        font-size: 1.1rem;
     }
 
-    .class-card {
-      border-radius: 8px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 180px;
-      padding: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.2s;
+    footer {
+        text-align: center;
+        padding: 15px 10px;
+        background: rgba(0, 0, 0, 0.1); /* Light semi-transparent footer */
+        font-size: 0.9rem;
     }
 
-    .class-card:hover {
-      transform: translateY(-4px);
+    .button-container {
+        margin-top: 10px;
     }
 
-    .class-header h2 {
-      margin: 0 0 4px 0;
+    button {
+        background: lightpink;;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .class-header p {
-      margin: 0;
+    button:hover {
+        background: pink;
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .class-footer {
-      display: flex;
-      justify-content: flex-end;
+    /* Subtle Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .class-footer .material-icons {
-      font-size: 24px;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 12px 25px;
+        }
     }
-  </style>
+</style>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>School Schedule</title>
+  
+  
+  
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+      
+        }
+        .period {
+            margin: 10px 0;
+            padding: 10px;
+            border: 0px solid #ddd;
+            border-radius: 5px;
+          background-color: clear; /*prgress bar box backgroibnd color */
+        }
+        .countdown {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: black; /* prgress bar backgroudn color */
+            border-radius: 5px;
+            height: 25px;
+            margin: 10px 0;
+            position: relative;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: gray; /* prgress bar color */
+            border-radius: 5px;
+            text-align: center;
+            color: white; /* prgress bar text color */
+            line-height: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        }
+    </style>
 </head>
 <body>
-  <header class="main-header">
-    <span class="material-icons">menu</span>
-    <h1>Classroom</h1>
-    <div class="spacer"></div>
-    <span class="material-icons">account_circle</span>
-  </header>
-
-  <main class="class-container">
-    <div class="class-card" style="background-color: #4285F4;">
-      <div class="class-header">
-        <h2>Math 101</h2>
-        <p>Period 1 - Mr. Smith</p>
-      </div>
-      <div class="class-footer">
-        <span class="material-icons">folder</span>
-      </div>
+    <h1>Today's Schedule</h1>
+    <div id="schedule">
+        <!-- Progress bars will be inserted here -->
     </div>
+    <button class="button" onclick="window.location.href='index.html'">Back to Home</button>
 
-    <div class="class-card" style="background-color: #EA4335;">
-      <div class="class-header">
-        <h2>History</h2>
-        <p>Period 2 - Ms. Johnson</p>
-      </div>
-      <div class="class-footer">
-        <span class="material-icons">folder</span>
-      </div>
-    </div>
+    <script>
+        const schedules = {
+            'Monday': [
+                { name: '0 Period', start: '07:00', end: '08:00' },
+                { name: 'Passing 1', start: '08:00', end: '08:10' },
+                { name: '1st Period', start: '08:10', end: '09:00' },
+                { name: 'Passing 2', start: '09:00', end: '09:05' },
+                { name: '2nd Period', start: '09:05', end: '09:55' },
+                { name: 'Passing 3', start: '09:55', end: '10:05' },
+                { name: '3rd Period', start: '10:05', end: '10:55' },
+                { name: 'Passing 4', start: '10:55', end: '11:00' },
+                { name: '4th Period', start: '11:00', end: '11:50' },
+                { name: 'Lunch', start: '11:50', end: '12:25' },
+                { name: 'Passing 5', start: '12:25', end: '12:30' },
+                { name: '5th Period', start: '12:30', end: '13:20' },
+                { name: 'Passing 6', start: '13:20', end: '13:25' },
+                { name: '6th Period', start: '13:25', end: '14:15' },
+                { name: 'Passing 7', start: '14:15', end: '14:25' },
+                { name: '7th Period', start: '14:25', end: '15:25' }
+            ],
+            'Tuesday': [
+                  { name: 'Passing 1', start: '08:00', end: '08:10' },
+                { name: '1st Period', start: '08:10', end: '09:00' },
+                { name: 'Passing 2', start: '09:00', end: '09:05' },
+                { name: '2nd Period', start: '09:05', end: '09:55' },
+                { name: 'Passing 3', start: '09:55', end: '10:05' },
+                { name: '3rd Period', start: '10:05', end: '10:55' },
+                { name: 'Passing 4', start: '10:55', end: '11:00' },
+                { name: '4th Period', start: '11:00', end: '11:50' },
+                { name: 'Lunch', start: '11:50', end: '12:25' },
+                { name: 'Passing 5', start: '12:25', end: '12:30' },
+                { name: '5th Period', start: '12:30', end: '13:20' },
+                { name: 'Passing 6', start: '13:20', end: '13:25' },
+                { name: '6th Period', start: '13:25', end: '14:15' },
+                { name: 'Passing 7', start: '14:15', end: '14:25' },
+                { name: '7th Period', start: '14:25', end: '15:25' }
+            ],
+            'Wednesday': [
+                { name: '0 Period', start: '07:00', end: '08:00' },
+                { name: 'Passing 1', start: '08:00', end: '08:10' },
+                { name: '1st Period', start: '08:10', end: '09:35' },
+                { name: 'Passing 2', start: '09:35', end: '09:45' },
+                { name: '3rd Period', start: '09:45', end: '11:10' },
+                { name: 'Passing 3', start: '11:10', end: '11:15' },
+                { name: 'SOAR', start: '11:15', end: '12:05' },
+                { name: 'Lunch', start: '12:05', end: '12:40' },
+                { name: 'Passing 4', start: '12:40', end: '12:50' },
+                { name: '5th Period', start: '12:50', end: '14:15' },
+                { name: 'Passing 5', start: '14:15', end: '14:25' },
+                { name: '7th Period', start: '14:25', end: '15:25' }
+            ],
+            'Thursday': [
+                { name: '0 Period', start: '07:00', end: '08:00' },
+                { name: 'Passing 1', start: '08:00', end: '08:10' },
+                { name: '2nd Period', start: '08:10', end: '09:35' },
+                { name: 'Passing 2', start: '09:35', end: '09:45' },
+                { name: '4th Period', start: '09:45', end: '11:10' },
+                { name: 'Passing 3', start: '11:10', end: '11:15' },
+                { name: 'SOAR', start: '11:15', end: '12:05' },
+                { name: 'Lunch', start: '12:05', end: '12:40' },
+                { name: 'Passing 4', start: '12:40', end: '12:50' },
+                { name: '6th Period', start: '12:50', end: '14:15' },
+                { name: 'Passing 5', start: '14:15', end: '14:25' },
+                { name: '7th Period', start: '14:25', end: '15:25' }
+            ],
+            'Friday': [
+                { name: '1st Period', start: '09:00', end: '09:45' },
+                { name: 'Passing 1', start: '09:45', end: '09:50' },
+                { name: '2nd Period', start: '09:50', end: '10:35' },
+                { name: 'Passing 2', start: '10:35', end: '10:45' },
+                { name: '3rd Period', start: '10:45', end: '11:30' },
+                { name: 'Passing 3', start: '11:30', end: '11:35' },
+                { name: '4th Period', start: '11:35', end: '12:20' },
+                { name: 'Lunch', start: '12:20', end: '12:55' },
+                { name: 'Passing 4', start: '12:55', end: '13:00' },
+                { name: '5th Period', start: '13:00', end: '13:45' },
+                { name: 'Passing 5', start: '13:45', end: '13:50' },
+                { name: '6th Period', start: '13:50', end: '14:35' }
+              
+            ]
+        };
 
-    <div class="class-card" style="background-color: #34A853;">
-      <div class="class-header">
-        <h2>Science</h2>
-        <p>Period 3 - Dr. Lee</p>
-      </div>
-      <div class="class-footer">
-        <span class="material-icons">folder</span>
-      </div>
-    </div>
+        function formatTime(date) {
+            return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+        }
 
-    <div class="class-card" style="background-color: #FBBC05;">
-      <div class="class-header">
-        <h2>English</h2>
-        <p>Period 4 - Mrs. Adams</p>
-      </div>
-      <div class="class-footer">
-        <span class="material-icons">folder</span>
-      </div>
-    </div>
-  </main>
+        function calculateRemainingTime(startTime, endTime) {
+            const now = new Date();
+            const [startHours, startMinutes] = startTime.split(':').map(Number);
+            const [endHours, endMinutes] = endTime.split(':').map(Number);
+            
+            const startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes, 0);
+            const endDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), endHours, endMinutes, 0);
+
+            const duration = endDate - startDate;
+            const remainingTime = endDate - now;
+
+            if (remainingTime < 0) return { hours: 0, minutes: 0, seconds: 0, progress: 100 };
+
+            const hoursLeft = Math.floor(remainingTime / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const secondsLeft = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            const progress = Math.max(0, 100 - (remainingTime / duration) * 100);
+
+            return { hours: hoursLeft, minutes: minutesLeft, seconds: secondsLeft, progress };
+        }
+
+        function updateCountdowns() {
+            const now = new Date();
+            const today = now.toLocaleDateString('en-US', { weekday: 'long' });
+            const daySchedule = schedules[today] || [];
+
+            document.getElementById('schedule').innerHTML = `<h2>${today}</h2>`;
+
+            daySchedule.forEach(period => {
+                const { hours, minutes, seconds, progress } = calculateRemainingTime(period.start, period.end);
+                const periodDiv = document.createElement('div');
+                periodDiv.className = 'period';
+                periodDiv.innerHTML = `
+                    <div><strong>${period.name}</strong></div>
+                    <div class="countdown">Time left: ${hours}h ${minutes}m ${seconds}s</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${progress}%">${Math.floor(progress)}%</div>
+                    </div>
+                `;
+                document.getElementById('schedule').appendChild(periodDiv);
+            });
+        }
+
+        setInterval(updateCountdowns, 1000); // Update every second
+    </script>
+  
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your usual head content here -->
+    <style>
+        /* Your usual styles here */
+    </style>
+</head>
+<body>
+    <!-- Your usual page content here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttonColor = localStorage.getItem('buttonColor');
+            if (buttonColor) {
+                document.querySelectorAll('button').forEach(button => {
+                    button.style.backgroundColor = buttonColor;
+                });
+                document.querySelectorAll('h1').forEach(heading => {
+                    heading.style.color = buttonColor;
+                });
+            }
+        });
+    </script>
+  <footer>
+        <p>&copy; 2024. Inspiration from School Prgress by Grant Garbe. Code by Chatgpt.
+      This is not supposed to be harmful it is just for fun! :)</p>
+    </footer>
+  
+</body>
+</html>
+
+
+    <div class="red-line"></div>
+</head>
+<body>
+   <style>
+  body {
+    
+  background-image: url("https://cdn.glitch.global/377ce643-439b-4e70-8a20-55ba50dadbf5/notebookbg.jpg?v=1734219124090");
+  background-repeat: repeat;
+  background-size: 25em; /* Adjust the size as needed */
+  line-height: 1.85; /* Adjust the size as needed */
+  color: black;
+  min-height: 100vh;
+  position: relative;
+  margin-left: 1.1in;
+  font-family: "Shadows Into Light", sans-serif;
+}
+        .red-line {
+  position: fixed;
+  top: 0;
+  left: 1in;
+  width: 2px;
+  height: 100vh;
+  background: red;
+}
+  </style>
+  
+</body>
+</html>
+
+
+
+
+    
