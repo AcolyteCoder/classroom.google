@@ -3,33 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Dashboard</title>
+  <title>Google Classroom Clone</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>My Classroom</h1>
+  <header class="top-bar">
+    <h1>Classroom</h1>
   </header>
 
-  <main class="card-container">
-    <a href="schedule.html" class="card">
-      <h2>📅 Schedule</h2>
-      <p>View your class schedule</p>
+  <main class="classroom">
+    <a href="schedule.html" class="class-card" style="background-color: #1a73e8;">
+      <div class="card-header">
+        <h2>Schedule</h2>
+        <p>Check your daily class routine</p>
+      </div>
     </a>
 
-    <a href="shop.html" class="card">
-      <h2>🛒 Shop</h2>
-      <p>Spend your coins!</p>
+    <a href="shop.html" class="class-card" style="background-color: #34a853;">
+      <div class="card-header">
+        <h2>Shop</h2>
+        <p>Spend your coins and buy items</p>
+      </div>
     </a>
 
-    <a href="games.html" class="card">
-      <h2>🎮 Games</h2>
-      <p>Play fun games</p>
+    <a href="games.html" class="class-card" style="background-color: #fbbc04;">
+      <div class="card-header">
+        <h2>Games</h2>
+        <p>Have fun and play educational games</p>
+      </div>
     </a>
 
-    <a href="ebooks.html" class="card">
-      <h2>📚 eBooks</h2>
-      <p>Read and learn</p>
+    <a href="ebooks.html" class="class-card" style="background-color: #ea4335;">
+      <div class="card-header">
+        <h2>eBooks</h2>
+        <p>Read your school eBooks here</p>
+      </div>
     </a>
   </main>
 </body>
